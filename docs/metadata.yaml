@@ -1,0 +1,84 @@
+---
+# Document Metadata
+title: "A Comprehensive Guide to Professional PDF Documentation from Markdown Files Using Pandoc and LaTeX"
+subtitle: "Test Documentation Project"
+author: "Vladimir Rakov"
+date: "24.09.2025"
+institute: "Gibb, Bern"
+subject: "Technical Documentation"
+keywords: "Documentation, PDF, Markdown, Pandoc, LaTeX"
+
+# Document formatting
+documentclass: scrreprt
+fontsize: 11pt
+geometry:
+  - a4paper
+  - margin=2.5cm
+classoption:
+  - oneside
+  - openany
+lang: en-US
+
+# Table of contents
+toc: true
+toc-depth: 3
+numbersections: true
+secnumdepth: 3
+
+# To allow separte pages after the TOC with these indexes
+lof: true # List of Figures
+lot: true # List of Tables
+
+# Bibliography settings
+bibliography: docs/references.bib
+
+# Pandoc chapter handling
+top-level-division: chapter # Treat # headings as chapters
+
+# KOMA-Script styling
+titlepage: true
+
+header-includes:
+  - \usepackage{scrlayer-scrpage} # Load packages first for custom headers/footers
+  - \usepackage{tocbibind} # Add LOF, LOT, and bibliography to TOC
+  - \usepackage{caption} # Center table captions
+  - \usepackage{tikz} # For advanced graphics/diagrams
+  - \usepackage{pgfgantt} # For Gantt charts
+  - \usepackage{booktabs} # For professional table formatting
+  # Adjust paragraph spacing
+  - \setlength{\parskip}{6pt plus 2pt minus 1pt} # Reduce space between paragraphs
+  - \setlength{\parindent}{0pt} # No paragraph indentation (modern style)
+  # Header/footer configuration for single-sided layout
+  # Increase header height and adjust header separation from top of page
+  - \setlength{\headheight}{32pt} # Set header height
+  - \setlength{\headsep}{18pt} # Increase space between header and text body
+  - \setlength{\footheight}{20pt} # Set footer height
+  - \setlength{\footskip}{32pt} # Increase space between footer and text body
+  - \KOMAoptions{headsepline=true} # Enable header separator line
+  - \setkomafont{headsepline}{\color{black}} # Set line color (optional)
+  - \ihead{\MakeUppercase{\leftmark} \\ \textnormal{Guide to Professional PDF Documentation \\ Test Documentation Project}} # Uppercase chapter names
+  - \ohead{\textnormal{Vladimir Rakov \\ \today}}
+  - \ifoot{}
+  - \ofoot{\thepage}
+  - \cfoot{} # Clear center footer (removes duplicate page number)
+  # Force chapter mark updates (only leftmark)
+  - \renewcommand{\chaptermark}[1]{\markboth{\textnormal{#1}}{}}
+  # Make TOC appear in headers (KOMA-Script approach)
+  - \BeforeStartingTOC[toc]{\markboth{Table of Contents}{}}
+  # Use KOMA-Script approach to modify list headings
+  - \setkomafont{caption}{\small} # Smaller font for captions
+  - \addtokomafont{captionlabel}{\bfseries} # Bold caption labels
+  - \setlength{\footnotesep}{12pt} # Space between footnotes
+  - \renewcommand{\footnoterule}{\vspace*{-3pt}\hrule width 2in height 0.4pt \vspace*{2.6pt}} # Custom footnote rule
+  # Apply custom header/footer to ALL pages (including chapter starts)
+  - \renewcommand{\chapterpagestyle}{scrheadings} # Apply custom headers/footers to chapter starting pages
+  - \pagestyle{scrheadings} # Configure headers/footers after everything is set up
+
+# Code highlighting
+syntax-highlighting: true
+highlight-style: github
+
+# PDF properties
+pdf-engine: xelatex
+---
+
