@@ -1,0 +1,24 @@
+% font-setup.tex — loaded via \input{font-setup.tex} from YAML header-includes
+\usepackage{fontspec}
+\usepackage{polyglossia}
+\setmainlanguage[variant=swiss]{german}
+
+
+% Make TheSans Swisscom the main document font by registering the family
+% (explicit filenames from /Library/Fonts/)
+\setmainfont{TheSans Swisscom}[Path=/Library/Fonts/,UprightFont=TheSansSwisscom_55_TT.ttf,ItalicFont=TheSansSwisscom_55iTT.ttf,BoldFont=TheSansSwisscom_57_TT.ttf,BoldItalicFont=TheSansSwisscom_57iTT.ttf]
+
+% Configure listings for code blocks (no external tools required)
+\usepackage{listings}
+\lstset{
+  basicstyle=\ttfamily\small,
+  breaklines=true,
+  columns=fullflexible,
+  keepspaces=true,
+  numbers=left,
+  numberstyle=\tiny,
+  xleftmargin=2em
+}
+
+% If you prefer to keep a serif body font and use TheSans only as sans,
+% replace \setmainfont above with \setsansfont and add \renewcommand{\familydefault}{\sfdefault}.

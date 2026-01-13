@@ -16,12 +16,21 @@ echo -e "${YELLOW}Starting documentation generation process...${RESET}"
 # Define input files in correct order
 inputFiles=(
   "docs/metadata.yaml"
-  "docs/01-introduction.md"
-  "docs/02-pandoc-fundamentals.md"
-  "docs/03-markdown-best-practices.md"
-  "docs/04-template-configuration.md"
-  "docs/05-automation-workflow.md"
-  "docs/06-bibliography.md"
+
+  "docs/teil-1/00-teil.md"
+  "docs/teil-1/01-arbeitsjournal.md"
+  "docs/teil-1/02-persönliches-fazit.md"
+
+  "docs/teil-2/00-teil.md"
+  "docs/teil-2/01-kurzfassung.md"
+  "docs/teil-2/02-einleitung.md"
+  "docs/teil-2/03-projektvorgehen.md"
+  "docs/teil-2/04-umsetzung.md"
+  "docs/teil-2/05-ergebnisse.md"
+  "docs/teil-2/06-glossar.md"
+  "docs/teil-2/07-quellen.md"
+
+  "docs/anhang/01-anhang.md"
 )
 
 # Generate timestamp for output file
@@ -72,7 +81,7 @@ pandoc_args=(
 # Run pandoc
 if pandoc "${pandoc_args[@]}"; then
   if [ -f "${outputFile}" ]; then
-    bytes=$(wc -c < "${outputFile}" | tr -d ' ')
+    bytes=$(wc -c <"${outputFile}" | tr -d ' ')
     fileSizeKB=$(awk "BEGIN{printf \"%.2f\", ${bytes}/1024}")
     echo -e "\n${GREEN}=== BUILD SUCCESSFUL ===${RESET}"
     echo -e "${GREEN}PDF generated: ${outputFile}${RESET}"

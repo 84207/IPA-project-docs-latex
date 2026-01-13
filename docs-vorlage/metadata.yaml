@@ -60,7 +60,7 @@ header-includes:
   - \KOMAoptions{headsepline=true} # Enable header separator line
   - \setkomafont{headsepline}{\color{black}} # Set line color (optional)
   - \ihead{IPA Kaufmann Daniel} # Uppercase chapter names
-  - \ohead{\today}
+  - \ohead{\today}}
   - \ifoot{}
   - \ofoot{\thepage}
   - \cfoot{\pagemark} # Clear center footer (removes duplicate page number)
