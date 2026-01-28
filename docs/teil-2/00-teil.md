@@ -1,1 +1,1 @@
-\part{Teil 2 – Dokumentation}
+\part{Teil 2 – Projekt}

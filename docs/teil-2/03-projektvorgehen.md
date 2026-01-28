@@ -1,5 +1,0 @@
-# Projektvorgehen
-
-## Projektmethode
-## Planung
-## Risiken
